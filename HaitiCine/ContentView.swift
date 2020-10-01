@@ -1,16 +1,26 @@
-//
-//  ContentView.swift
-//  HaitiCine
-//
-//  Created by Julio Jean Fils on 1/10/20.
-//  Copyright © 2020 Julio Jean Fils. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack{
+            Text("Movies list").font(.largeTitle)
+                .foregroundColor(Color.blue)
+            Spacer()
+            Image("store")
+                .resizable()
+                .aspectRatio(contentMode: .fit).cornerRadius(20)
+            .clipShape(Circle())
+                .padding(.all)
+            Spacer()
+            VStack{
+
+            Text(" Movie name")
+            .font(.title)
+            Text("Movie description")
+                .font(.body)
+            }
+        }
+  
     }
 }
 
