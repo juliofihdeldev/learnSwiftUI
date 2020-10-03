@@ -26,6 +26,8 @@ struct TodosList: View {
     ]
     
     @State var categories = [
+        Category(name:"Your story",
+                       imageUrl:"jul"),
         Category(name:"Iphone",
                  imageUrl:"iphone"),
         Category(name:"Ipad",
@@ -37,11 +39,21 @@ struct TodosList: View {
     var body: some View {
         
         VStack{
-            
-            
             NavigationView{
-                
                 List{
+                    
+                    ScrollView(.horizontal,  showsIndicators: false){
+                        HStack(alignment: .center, spacing: 2.0){
+                            ForEach(categories) { category in
+                                CategoryItemView(category: category)
+                                    
+                                    .frame(width: 70)
+                                    .padding(.trailing , 1)
+                            }
+                        }
+                        
+                    }
+                    
                     ForEach(posts) { post in
                         NavigationLink(destination:
                         DetailsPostView(post:post)){
@@ -52,38 +64,25 @@ struct TodosList: View {
                     }
                     
                 }
-            .navigationBarTitle("POST FEEDS")
-                    .navigationBarItems(trailing:
-                        HStack {
-                            Image("user")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width:60,
-                                       height: 60)
-                        }
+                .navigationBarTitle("FEEDS", displayMode: .inline).font(.largeTitle)
+                .navigationBarItems(trailing:
+                    HStack {
+                        Image("jul")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:40,
+                                   height: 40)
+                            .cornerRadius(40)
+                        
+                    }
                 )
                 
             }
             
-            //            ScrollView(.horizontal,  showsIndicators: false){
-            //                           HStack(alignment: .center, spacing: 12.0){
-            //                               ForEach(categories) { category in
-            //                                   CategoryItemView(category: category)
-            //
-            //                                       .frame(width: 120)
-            //                                       .padding(.trailing , 10)
-            //                               }
-            //                           }
-            //
-            //                }
         }
     }
     
-    
-    
-    
-    
-    
+
     struct CategoryItemView: View {
         let category : Category
         
@@ -91,12 +90,14 @@ struct TodosList: View {
             VStack(){
                 Image(category.imageUrl)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width:120,
-                           height: 120)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width:60,
+                           height: 60)
+                    .cornerRadius(30)
+                    .clipShape(Circle())
                 
-                
-                Text(category.name).font(.title)
+                Text(category.name).font(.subheadline)
+                    .lineLimit(1)
             }
             
             
@@ -105,12 +106,6 @@ struct TodosList: View {
     }
     
 }
-
-
-
-
-
-
 
 struct PostItemView: View {
     let post : Post
@@ -139,7 +134,6 @@ struct PostItemView: View {
                     .clipShape(Rectangle())
                     .padding(.all, 0.0)
             }
-            
             
             HStack{
                 
