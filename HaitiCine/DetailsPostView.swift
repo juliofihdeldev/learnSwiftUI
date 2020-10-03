@@ -1,17 +1,11 @@
-//
-//  DetailsPostView.swift
-//  HaitiCine
-//
-//  Created by Julio Jean Fils on 1/10/20.
-//  Copyright © 2020 Julio Jean Fils. All rights reserved.
-//
+
 
 import SwiftUI
 
 struct DetailsPostView: View {
     let post : Post
     var body: some View {
-        VStack (alignment: .leading, spacing: 16){
+        VStack (alignment: .leading){
             
             Image(post.imageUrl)
                 .resizable()
@@ -28,7 +22,7 @@ struct DetailsPostView: View {
                 Text(post.description)
                     .font(.body)
             }
-            
+            .edgesIgnoringSafeArea(.top)
             
         }
         .navigationBarTitle(

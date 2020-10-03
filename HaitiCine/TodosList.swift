@@ -25,24 +25,91 @@ struct TodosList: View {
              qty: 2)
     ]
     
+    @State var categories = [
+        Category(name:"Iphone",
+                 imageUrl:"iphone"),
+        Category(name:"Ipad",
+                 imageUrl:"ipad"),
+        Category(name:"Apple Watch",
+                 imageUrl:"watch"),
+    ]
     
     var body: some View {
-        NavigationView{
-            List{
-                ForEach(posts) { post in
-                    NavigationLink(destination:
-                    DetailsPostView(post:post)){
-                        PostItemView(post: post)
+        
+        VStack{
+            
+            
+            NavigationView{
+                
+                List{
+                    ForEach(posts) { post in
+                        NavigationLink(destination:
+                        DetailsPostView(post:post)){
+                            PostItemView(post: post)
+                            
+                        }
                         
                     }
                     
                 }
+            .navigationBarTitle("POST FEEDS")
+                    .navigationBarItems(trailing:
+                        HStack {
+                            Image("user")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width:60,
+                                       height: 60)
+                        }
+                )
                 
             }
-            .navigationBarTitle("POST FEEDS")
+            
+            //            ScrollView(.horizontal,  showsIndicators: false){
+            //                           HStack(alignment: .center, spacing: 12.0){
+            //                               ForEach(categories) { category in
+            //                                   CategoryItemView(category: category)
+            //
+            //                                       .frame(width: 120)
+            //                                       .padding(.trailing , 10)
+            //                               }
+            //                           }
+            //
+            //                }
         }
     }
+    
+    
+    
+    
+    
+    
+    struct CategoryItemView: View {
+        let category : Category
+        
+        var body: some View {
+            VStack(){
+                Image(category.imageUrl)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width:120,
+                           height: 120)
+                
+                
+                Text(category.name).font(.title)
+            }
+            
+            
+        }
+        
+    }
+    
 }
+
+
+
+
+
 
 
 struct PostItemView: View {
