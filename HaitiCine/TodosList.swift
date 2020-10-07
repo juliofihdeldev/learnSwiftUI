@@ -47,7 +47,6 @@ struct TodosList: View {
                         HStack(alignment: .center, spacing: 2.0){
                             ForEach(categories) { category in
                                 CategoryItemView(category: category)
-                                    
                                     .frame(width: 70)
                                     .padding(.trailing , 1)
                             }
@@ -65,6 +64,7 @@ struct TodosList: View {
                     }
                     
                 }
+            .navigationBarHidden(true)
                 .navigationBarTitle("FEEDS", displayMode: .inline).font(.largeTitle)
                 .navigationBarItems(trailing:
                     HStack {

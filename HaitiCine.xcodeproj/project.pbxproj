@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4379237F2529604100185EFB /* DrawerTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4379237E2529604100185EFB /* DrawerTraining.swift */; };
 		4387DCA22527FB1100CE9341 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4387DCA12527FB1100CE9341 /* Category.swift */; };
+		43B033AF252D0048005F71D0 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B033AE252D0048005F71D0 /* Users.swift */; };
+		43B033B2252D0236005F71D0 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B033B1252D0236005F71D0 /* Api.swift */; };
+		43B033B4252D0634005F71D0 /* UsersSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B033B3252D0634005F71D0 /* UsersSwiftUIView.swift */; };
 		43ECFCEA2526C085000DB0E7 /* TodosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ECFCE92526C085000DB0E7 /* TodosList.swift */; };
 		43ECFCED2526C24B000DB0E7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ECFCEC2526C24B000DB0E7 /* Post.swift */; };
 		43ECFCEF2526C50E000DB0E7 /* DetailsPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43ECFCEE2526C50E000DB0E7 /* DetailsPostView.swift */; };
@@ -23,10 +26,13 @@
 /* Begin PBXFileReference section */
 		4379237E2529604100185EFB /* DrawerTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTraining.swift; sourceTree = "<group>"; };
 		4387DCA12527FB1100CE9341 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		43B033AE252D0048005F71D0 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		43B033B1252D0236005F71D0 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		43B033B3252D0634005F71D0 /* UsersSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersSwiftUIView.swift; sourceTree = "<group>"; };
 		43ECFCE92526C085000DB0E7 /* TodosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosList.swift; sourceTree = "<group>"; };
 		43ECFCEC2526C24B000DB0E7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		43ECFCEE2526C50E000DB0E7 /* DetailsPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPostView.swift; sourceTree = "<group>"; };
-		43FDE7592526486500E48005 /* HaitiCine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaitiCine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43FDE7592526486500E48005 /* LearnSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FDE75C2526486500E48005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FDE75E2526486500E48005 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		43FDE7602526486500E48005 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,11 +53,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43B033B0252D0224005F71D0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				43B033B1252D0236005F71D0 /* Api.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		43ECFCEB2526C220000DB0E7 /* model */ = {
 			isa = PBXGroup;
 			children = (
 				43ECFCEC2526C24B000DB0E7 /* Post.swift */,
 				4387DCA12527FB1100CE9341 /* Category.swift */,
+				43B033AE252D0048005F71D0 /* Users.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -67,7 +82,7 @@
 		43FDE75A2526486500E48005 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				43FDE7592526486500E48005 /* HaitiCine.app */,
+				43FDE7592526486500E48005 /* LearnSwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +90,7 @@
 		43FDE75B2526486500E48005 /* HaitiCine */ = {
 			isa = PBXGroup;
 			children = (
+				43B033B0252D0224005F71D0 /* API */,
 				4379237E2529604100185EFB /* DrawerTraining.swift */,
 				43ECFCEB2526C220000DB0E7 /* model */,
 				43FDE75C2526486500E48005 /* AppDelegate.swift */,
@@ -86,6 +102,7 @@
 				43FDE7642526486D00E48005 /* Preview Content */,
 				43ECFCE92526C085000DB0E7 /* TodosList.swift */,
 				43ECFCEE2526C50E000DB0E7 /* DetailsPostView.swift */,
+				43B033B3252D0634005F71D0 /* UsersSwiftUIView.swift */,
 			);
 			path = HaitiCine;
 			sourceTree = "<group>";
@@ -115,7 +132,7 @@
 			);
 			name = HaitiCine;
 			productName = HaitiCine;
-			productReference = 43FDE7592526486500E48005 /* HaitiCine.app */;
+			productReference = 43FDE7592526486500E48005 /* LearnSwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,12 +187,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4379237F2529604100185EFB /* DrawerTraining.swift in Sources */,
+				43B033AF252D0048005F71D0 /* Users.swift in Sources */,
 				43FDE75D2526486500E48005 /* AppDelegate.swift in Sources */,
 				43ECFCEF2526C50E000DB0E7 /* DetailsPostView.swift in Sources */,
+				43B033B4252D0634005F71D0 /* UsersSwiftUIView.swift in Sources */,
 				43FDE75F2526486500E48005 /* SceneDelegate.swift in Sources */,
 				43FDE7612526486500E48005 /* ContentView.swift in Sources */,
 				43ECFCEA2526C085000DB0E7 /* TodosList.swift in Sources */,
 				43ECFCED2526C24B000DB0E7 /* Post.swift in Sources */,
+				43B033B2252D0236005F71D0 /* Api.swift in Sources */,
 				4387DCA22527FB1100CE9341 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,14 +334,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HaitiCine/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HaitiCine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = julio.HaitiCine;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "julio.-LearnSwiftUI";
+				PRODUCT_NAME = LearnSwiftUI;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -333,14 +354,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HaitiCine/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HaitiCine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = julio.HaitiCine;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "julio.-LearnSwiftUI";
+				PRODUCT_NAME = LearnSwiftUI;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

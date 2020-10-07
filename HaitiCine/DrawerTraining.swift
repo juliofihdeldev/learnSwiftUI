@@ -3,13 +3,14 @@ import SwiftUI
 struct DrawerTraining: View {
     @State var index = "Home"
     @State var show = false
-    
+    @State var titleHeader = "Drawer learning"
     
     var body: some View {
         ZStack{
             ( self.show ? Color.black.opacity(0.05) : Color.clear).edgesIgnoringSafeArea(.all)
             
             ZStack(alignment:.leading){
+                
                 VStack(alignment: .leading, spacing:25){
                     
                     HStack{
@@ -29,6 +30,13 @@ struct DrawerTraining: View {
                     
                     ForEach(MenuList, id: \.self){i in                        Button(action: {
                         self.index = i
+                        self.titleHeader = i
+                        print(self.titleHeader )
+                        
+                        withAnimation(.spring()){
+                            self.show.toggle()
+                            self.titleHeader = i
+                        }
                         
                     } ){
                         HStack{
@@ -45,11 +53,11 @@ struct DrawerTraining: View {
                     Spacer()
                 }.padding(.leading)
                     .padding(.top)
-                
+                    .scaleEffect(self.show ? 1 : 0 )
                 
                 ZStack(alignment: .topTrailing){
                     
-                    MainView(show: self.$show)
+                    MainView(show: self.$show,index: self.$index, titleHeader: self.$titleHeader    )
                         .scaleEffect(self.show ? 0.8: 1)
                         .offset(x:self.show ? 150 : 0,
                                 y: self.show ? 50:0)
@@ -68,11 +76,8 @@ struct DrawerTraining: View {
                     }.padding()
                         .opacity(self.show ? 1:0)
                     
-                    
+    
                 }
-                
-                
-                
                 
             }
             
@@ -82,15 +87,17 @@ struct DrawerTraining: View {
 }
 
 struct MainView : View {
-    
     @Binding var show : Bool
+    @Binding var index  : String
+    @Binding var titleHeader : String
+    
     var body : some View{
         VStack(spacing:0){
             ZStack{
                 HStack{
                     
                     Button(action: {
-                        print("Menu tap")
+                        
                         withAnimation(.spring()){
                             self.show.toggle()
                         }
@@ -104,7 +111,7 @@ struct MainView : View {
                     Spacer()
                     
                     Button(action: {
-                        print("Menu dot")
+                      
                     }){
                         Image("dot")
                             .resizable()
@@ -113,39 +120,107 @@ struct MainView : View {
                     }
                 }
                 
-                Text("Food")
+                Text(self.titleHeader)
                     .fontWeight(.bold)
-                    .font(.title    )
+                    .font(.title)
             }
             .padding(.horizontal)
             .padding(.vertical, 10 )
             
             ZStack{
-                Home()
+                Home().opacity(self.index == "Home" ? 1 :0 )
+                Settings().opacity(self.index == "Settings" ? 1 :0 )
+                Profile().opacity(self.index == "Profile" ? 1 :0 )
+                Help().opacity(self.index == "Help" ? 1 :0 )
+                
             }
             
         }.background(Color.white)
+        .cornerRadius(15)
     }
 }
 
 
 struct Home : View{
     var body : some View {
-        ScrollView(.vertical, showsIndicators: false){
-            VStack(spacing:18){
-                ForEach(Data, id: \.self){i in
-                    Image(i)
-                        
-                        .resizable()
-                        
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(20)
-                    
+    
+               TodosList()
+    // ScrollView(.vertical, showsIndicators: false){
+    //
+    //            VStack(spacing:18){
+    //                ForEach(Data, id: \.self){i in
+    //                    Image(i)
+    //
+    //                        .resizable()
+    //
+    //                        .aspectRatio(contentMode: .fit)
+    //                        .cornerRadius(20)
+    //
+    //                }
+    //            }.padding(.top, 8)
+    //                .padding(.horizontal)
+    //        }
+    }
+}
+
+
+struct Settings : View {
+    
+    @State var settingsData = [
+        SettingsData(name:"Your story",
+                imageUrl:"jul"),
+        SettingsData(name:"Iphone",
+                 imageUrl:"iphone"),
+        SettingsData(name:"Ipad",
+                 imageUrl:"ipad"),
+        SettingsData(name:"Apple Watch",
+                 imageUrl:"watch"),
+    ]
+
+    
+    var body : some View{
+        GeometryReader{_ in
+            VStack (alignment :.leading){
+                List(){
+                    ForEach(self.settingsData){item in
+                        HStack{
+                            Image(item.imageUrl).resizable()
+                                .frame(width:20, height:20)
+                                .aspectRatio(contentMode:.fit)
+                                .cornerRadius(20)
+                            Text(item.name).font(.body )
+                            
+                        }
+                        .padding(12)
+                    }
+                    .background(Color.white)
                 }
-            }.padding(.top, 8)
-                .padding(.horizontal)
+            }
+            Spacer()
         }
     }
+}
+
+
+struct Profile : View {
+    var body : some View{
+        GeometryReader{_ in
+           UsersSwiftUIView()
+        }
+    }
+    
+}
+
+
+struct Help : View {
+    var body : some View{
+        GeometryReader{_ in
+            VStack{
+               Text("Help")
+            }
+        }
+    }
+    
 }
 
 var Data =  ["ipad", "lakers", "iphone"]
@@ -156,28 +231,16 @@ var MenuList =  ["Home", "Profile",
                  "Help", "Logout"]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+struct SettingsData:Identifiable, Codable {
+    let  id = UUID()
+    let name: String
+    let imageUrl: String
+}
 
 
 struct DrawerTraining_Previews: PreviewProvider {
     static var previews: some View {
         DrawerTraining()
+        // .preferredColorScheme(.dark)
     }
 }
