@@ -18,11 +18,12 @@ struct StoryBoard: View {
             }else{
                 Board(goTohome : self.$goTohome)
             }
-        }.onReceive(NotificationCenter.default.publisher(for: Notification.Name("success")), perform:{ _ in
-            withAnimation{self.goTohome = true}
-            
-            
-        })
+        }
+//        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("success")), perform:{ _ in
+//            withAnimation{self.goTohome = true}
+//
+//
+//        })
        
     }
 }
@@ -130,10 +131,10 @@ struct Board : View {
             if offset > 180 {
                 offset = maxWidth - 65
                 // Notify system
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35){
-                    NotificationCenter.default.post(name:NSNotification.Name("success"), object: nil)
-                }
-               
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35){
+//                    NotificationCenter.default.post(name:NSNotification.Name("success"), object: nil)
+//                }
+//
                 self.goTohome = true
                 
             }else{
