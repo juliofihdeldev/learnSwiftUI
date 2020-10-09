@@ -14,17 +14,17 @@ struct StoryBoard: View {
     var body: some View {
         ZStack{
             if goTohome{
-                Text("Go to home path")
+                DrawerTraining()
             }else{
                 Board(goTohome : self.$goTohome)
             }
         }
-//        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("success")), perform:{ _ in
-//            withAnimation{self.goTohome = true}
-//
-//
-//        })
-       
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("success")), perform:{ _ in
+            withAnimation{self.goTohome = true}
+            
+            
+        })
+        
     }
 }
 
@@ -74,17 +74,17 @@ struct Board : View {
                             .frame(width: calculWidth() + 65 )
                         Spacer(minLength: 0)
                     }
-                            
-                            
+                    
+                    
                     HStack{
                         ZStack{
                             
                             Image(systemName: "chevron.right")
-                            .font(Font.system(size: 30 )).foregroundColor(.white)
+                                .font(Font.system(size: 30 )).foregroundColor(.white)
                             
                             Image(systemName: "chevron.right")
                                 .offset(x: -10)
-                            .font(Font.system(size: 30)).foregroundColor(.white)
+                                .font(Font.system(size: 30)).foregroundColor(.white)
                             
                         }.foregroundColor(Color.red)
                             .offset(x:5)
@@ -114,27 +114,27 @@ struct Board : View {
     
     
     func onChanded(value: DragGesture.Value){
-       
-
-                             
+        
+        
+        
         if value.translation.width > 0 && offset <= maxWidth - 65{
             offset = value.translation.width
-             
+            
         }
     }
     
     func onEnd(value: DragGesture.Value){
-    
-        withAnimation(Animation.easeOut(duration: 0.3)){
-         
         
+        withAnimation(Animation.easeOut(duration: 0.3)){
+            
+            
             if offset > 180 {
                 offset = maxWidth - 65
                 // Notify system
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35){
-//                    NotificationCenter.default.post(name:NSNotification.Name("success"), object: nil)
-//                }
-//
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35){
+                    NotificationCenter.default.post(name:NSNotification.Name("success"), object: nil)
+                }
+                
                 self.goTohome = true
                 
             }else{
