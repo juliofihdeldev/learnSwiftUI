@@ -8,7 +8,8 @@ struct ContentView: View {
     }
     
     var body: some View {
-        DrawerTraining()
+        StoryBoard()
+//        DrawerTraining()
 //        TabView {
 //            DrawerTraining()
 //                .tabItem {
