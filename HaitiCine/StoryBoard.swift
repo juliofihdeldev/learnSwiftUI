@@ -22,7 +22,6 @@ struct StoryBoard: View {
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("success")), perform:{ _ in
             withAnimation{self.goTohome = true}
             
-            
         })
         
     }
@@ -34,12 +33,14 @@ struct Board : View {
     @Binding var goTohome : Bool
     
     var body: some View{
+        
         ZStack{
+          
             
-            VStack{
+            VStack(alignment: .center){
                 Spacer(minLength: 0)
-                
-                Text(" SMART LEARN")
+                    .padding(.top, 120)
+                Text("SMART LEARN")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .foregroundColor(.black)
@@ -47,15 +48,15 @@ struct Board : View {
                 
                 
                 Text("Don't waste your time. Learn something new  with our app and make your skill better")
-                    
                     .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
                     .padding()
                     .padding(.bottom)
-                    .frame(height: 100)
+                    .frame(width : maxWidth, height: 100)
                 Image("storyboard1").resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width:400, height: 400)
-                
+                    .frame(width:300, height: 420)
+                    .padding(.bottom, 30)
                 Spacer(minLength: 0)
                 
                 // slides
@@ -74,7 +75,6 @@ struct Board : View {
                             .frame(width: calculWidth() + 65 )
                         Spacer(minLength: 0)
                     }
-                    
                     
                     HStack{
                         ZStack{
@@ -105,8 +105,10 @@ struct Board : View {
         }
         .frame(width: maxWidth, height: 65)
         .padding(.bottom)
+       
         .edgesIgnoringSafeArea(.all)
     }
+    
     func calculWidth () -> CGFloat{
         let percent = offset / maxWidth
         return percent * maxWidth
@@ -114,9 +116,6 @@ struct Board : View {
     
     
     func onChanded(value: DragGesture.Value){
-        
-        
-        
         if value.translation.width > 0 && offset <= maxWidth - 65{
             offset = value.translation.width
             
@@ -124,17 +123,13 @@ struct Board : View {
     }
     
     func onEnd(value: DragGesture.Value){
-        
         withAnimation(Animation.easeOut(duration: 0.3)){
-            
-            
             if offset > 180 {
                 offset = maxWidth - 65
                 // Notify system
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35){
                     NotificationCenter.default.post(name:NSNotification.Name("success"), object: nil)
                 }
-                
                 self.goTohome = true
                 
             }else{
