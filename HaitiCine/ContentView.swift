@@ -4,49 +4,51 @@ struct ContentView: View {
     
     init() {
         UITabBar.appearance().barTintColor = UIColor.white
-    
+        
     }
     
     var body: some View {
-        StoryBoard()
-//        DrawerTraining()
-//        TabView {
-//            DrawerTraining()
-//                .tabItem {
-//
-//                    Image(systemName: "house")
-//                        .font(.title)
-//
-//            }
-//            TodosList()
-//                .tabItem {
-//
-//                Image(systemName: "message")
-//                    .font(.title)
-//
-//            }
-//
-//            TodosList()
-//                .tabItem {
-//                Image(systemName: "plus.circle")
-//                    .font(.title)
-//
-//            }
-//
-//            TodosList()
-//                .tabItem {
-//                Image(systemName: "heart")
-//                    .font(.title)
-//
-//            }
-//            TodosList()
-//                .tabItem {
-//                Image(systemName: "person")
-//                    .font(.title)
-//
-//            }
-//        }.accentColor(.black)
-//
+        
+        //        LoginSV()
+                  StoryBoard()
+        //        DrawerTraining()
+        //        TabView {
+        //            DrawerTraining()
+        //                .tabItem {
+        //
+        //                    Image(systemName: "house")
+        //                        .font(.title)
+        //
+        //            }
+        //            TodosList()
+        //                .tabItem {
+        //
+        //                Image(systemName: "message")
+        //                    .font(.title)
+        //
+        //            }
+        //
+        //            TodosList()
+        //                .tabItem {
+        //                Image(systemName: "plus.circle")
+        //                    .font(.title)
+        //
+        //            }
+        //
+        //            TodosList()
+        //                .tabItem {
+        //                Image(systemName: "heart")
+        //                    .font(.title)
+        //
+        //            }
+        //            TodosList()
+        //                .tabItem {
+        //                Image(systemName: "person")
+        //                    .font(.title)
+        //
+        //            }
+        //        }.accentColor(.black)
+        //
         
     }
 }

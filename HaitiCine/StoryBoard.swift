@@ -1,10 +1,7 @@
-//
 //  StoryBoard.swift
 //  HaitiCine
-//
 //  Created by Julio Jean Fils on 9/10/20.
 //  Copyright © 2020 Julio Jean Fils. All rights reserved.
-//
 
 import SwiftUI
 
@@ -14,7 +11,9 @@ struct StoryBoard: View {
     var body: some View {
         ZStack{
             if goTohome{
-                DrawerTraining()
+                LoginSV()
+            
+//              DrawerTraining()
             }else{
                 Board(goTohome : self.$goTohome)
             }
@@ -33,7 +32,6 @@ struct Board : View {
     @Binding var goTohome : Bool
     
     var body: some View{
-        
         ZStack{
           
             
@@ -42,10 +40,10 @@ struct Board : View {
                     .padding(.top, 120)
                 Text("SMART LEARN")
                     .font(.largeTitle)
-                    .fontWeight(.heavy)
+                    .fontWeight(.semibold)
                     .foregroundColor(.black)
-                    .padding(.leading, 30)
-                
+                    .multilineTextAlignment(.center)
+                    
                 
                 Text("Don't waste your time. Learn something new  with our app and make your skill better")
                     .foregroundColor(.gray)
@@ -71,7 +69,7 @@ struct Board : View {
                         .padding(.leading, 30)
                     
                     HStack {
-                        Capsule().fill(Color.red)
+                        Capsule().fill(Color("Color1"))
                             .frame(width: calculWidth() + 65 )
                         Spacer(minLength: 0)
                     }
@@ -86,10 +84,10 @@ struct Board : View {
                                 .offset(x: -10)
                                 .font(Font.system(size: 30)).foregroundColor(.white)
                             
-                        }.foregroundColor(Color.red)
+                        }.foregroundColor(Color("Color1"))
                             .offset(x:5)
                             .frame(width: 65, height: 65)
-                            .background(Color.red)
+                            .background(Color("Color1"))
                             .clipShape(Circle())
                             .offset(x: offset)
                             .gesture(
@@ -105,7 +103,6 @@ struct Board : View {
         }
         .frame(width: maxWidth, height: 65)
         .padding(.bottom)
-       
         .edgesIgnoringSafeArea(.all)
     }
     

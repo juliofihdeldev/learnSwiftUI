@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  HaitiCine
-//
-//  Created by Julio Jean Fils on 1/10/20.
-//  Copyright © 2020 Julio Jean Fils. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
